@@ -1,7 +1,11 @@
 fastapi
-uvicorn[standard]
+uvicorn
 pydantic
 psycopg2-binary
 sqlmodel
 python-dotenv
 pydantic-settings
+
+# Auth
+python-jose[cryptography]
+bcrypt==4.3.0

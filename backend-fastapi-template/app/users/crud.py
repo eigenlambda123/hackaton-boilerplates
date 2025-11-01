@@ -6,15 +6,20 @@ from .schemas import (
     UserUpdate
     )
 
-def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
-    return db.get(User, user_id)
 
 def create_user(db: Session, user: UserCreate) -> User:
-    db_user = User(**user.dict())
+    db_user = User(**user.model_dump())
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
     return db_user
+
+def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
+    return db.get(User, user_id)
+
+def get_user_by_email(db: Session, email: str) -> Optional[User]:
+    statement = select(User).where(User.email == email)
+    return db.exec(statement).first()
 
 def get_all_users(db: Session) -> List[User]:
     statement = select(User)
