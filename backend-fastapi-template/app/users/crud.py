@@ -6,13 +6,49 @@ from .schemas import (
     UserUpdate
     )
 
+# use this if we're using lightweight role implementation
+# def create_user(db: Session, user: UserCreate) -> User:
+#     db_user = User(**user.model_dump())
+#     db.add(db_user)
+#     db.commit()
+#     db.refresh(db_user)
+#     return db_user
 
-def create_user(db: Session, user: UserCreate) -> User:
-    db_user = User(**user.model_dump())
-    db.add(db_user)
+# use this if we're linking to Role model
+from app.auth.password_utils import get_password_hash
+from app.roles.models import Role
+from fastapi import HTTPException, status
+
+def create_user(db: Session, user_data: UserCreate):
+    role = None
+    if user_data.role_id:
+        role = db.get(Role, user_data.role_id)
+        if not role:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Role with id={user_data.role_id} does not exist.",
+            )
+    elif user_data.role_name:
+        role = db.exec(select(Role).where(Role.name == user_data.role_name)).first()
+        if not role:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Role '{user_data.role_name}' does not exist.",
+            )
+
+    hashed_password = get_password_hash(user_data.password)
+    user = User(
+        name=user_data.name,
+        email=user_data.email,
+        password=hashed_password,
+        role_id=role.id if role else None,
+    )
+    db.add(user)
     db.commit()
-    db.refresh(db_user)
-    return db_user
+    db.refresh(user)
+    return user
+
+
 
 def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
     return db.get(User, user_id)

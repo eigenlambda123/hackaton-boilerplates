@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.users.router import router as users_router
 from app.auth.router import router as auth_router
+from app.roles.router import router as roles_router
 from app.core.database import init_db
 
 app = FastAPI()
@@ -20,6 +21,7 @@ def on_startup():
 
 app.include_router(users_router)
 app.include_router(auth_router)
+app.include_router(roles_router)
 
 @app.get("/")
 async def read_root():

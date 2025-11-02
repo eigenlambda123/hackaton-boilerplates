@@ -11,11 +11,30 @@ class UserUpdate(BaseModel):
     email: str | None = None
     password: str | None = None
 
-class UserCreate(UserBase):
-    pass
+# Use this if we're using the lightweight role implementation
+# class UserCreate(UserBase):
+#     pass
 
-class UserRead(UserBase):
+# Use this if we're linking to the Role model
+class UserCreate(UserBase):
+    role_id: int | None = None
+
+# Use this if we're using the lightweight role implementation
+# class UserRead(UserBase):
+#     id: int
+#     role: str
+
+# Use this if we're linking to the Role model
+from typing import Optional
+from app.roles.schemas import RoleRead
+
+class UserRead(BaseModel):
     id: int
-    role: str
+    name: str
+    email: str
+    role: Optional[RoleRead] = None  
+
+    class Config:
+        from_attributes = True
 
 

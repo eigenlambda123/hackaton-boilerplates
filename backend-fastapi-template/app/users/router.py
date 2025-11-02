@@ -4,7 +4,7 @@ from app.core.database import get_session
 from . import crud, schemas
 from .schemas import UserRead, UserUpdate, UserCreate
 
-router = APIRouter(prefix="/users", tags=["Users"])
+router = APIRouter(prefix="/users", tags=["users"])
 
 @router.post("/", response_model=UserRead)
 def create_user(user: UserCreate, db: Session = Depends(get_session)):
