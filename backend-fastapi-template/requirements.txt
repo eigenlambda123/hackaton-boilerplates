@@ -9,3 +9,6 @@ pydantic-settings
 # Auth
 python-jose[cryptography]
 bcrypt==4.3.0
+
+# File handling
+python-multipart
