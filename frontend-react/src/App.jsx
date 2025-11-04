@@ -10,6 +10,8 @@ import Login from './pages/Auth/Login.jsx';
 import AuthMe  from './pages/Auth/AuthMe.jsx';
 
 import Roles from './pages/Roles/Roles.jsx';
+import FilesPage from './pages/Files/FilesPage.jsx';
+
 
 const App = () => {
   return (
@@ -24,6 +26,7 @@ const App = () => {
       <Route path="/auth/me" element={<AuthMe />} />
 
       <Route path="/roles" element={<Roles />} />
+      <Route path="/files" element={<FilesPage />} />
     </Routes>
   );
 };
