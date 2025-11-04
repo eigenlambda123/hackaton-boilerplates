@@ -9,6 +9,8 @@ import Register from './pages/Auth/Register.jsx';
 import Login from './pages/Auth/Login.jsx';
 import AuthMe  from './pages/Auth/AuthMe.jsx';
 
+import Roles from './pages/Roles/Roles.jsx';
+
 const App = () => {
   return (
     <Routes>
@@ -20,6 +22,8 @@ const App = () => {
       <Route path="/auth/register" element={<Register />} />
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/me" element={<AuthMe />} />
+
+      <Route path="/roles" element={<Roles />} />
     </Routes>
   );
 };
