@@ -11,6 +11,7 @@ from app.ai.ai_summarizer.router import router as ai_summarizer_router
 from app.ai.ai_sentiment.router import router as ai_sentiment_router
 from app.ai.ai_tts.router import router as ai_tts_router
 from app.ai.ai_stt.router import router as ai_stt_router
+from app.ai.ai_chat.router import router as ai_chat_router
 
 from app.core.database import init_db
 
@@ -40,6 +41,7 @@ app.include_router(ai_summarizer_router)
 app.include_router(ai_sentiment_router)
 app.include_router(ai_tts_router)
 app.include_router(ai_stt_router)
+app.include_router(ai_chat_router)
 
 @app.get("/")
 async def read_root():

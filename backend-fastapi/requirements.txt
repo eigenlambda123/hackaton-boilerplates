@@ -5,6 +5,7 @@ psycopg2-binary
 sqlmodel
 python-dotenv
 pydantic-settings
+passlib
 
 # Auth
 python-jose[cryptography]
@@ -15,6 +16,7 @@ python-multipart
 
 # Email
 fastapi-mail
+pydantic[email]
 
 # Websockets
 websockets
