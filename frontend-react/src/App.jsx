@@ -17,6 +17,8 @@ import UploadTask from './pages/Tasks/UploadTask.jsx';
 
 import SendTestEmail from './pages/Email/SendTestEmail.jsx';
 
+import SendNotification from './pages/Notifications/SendNotification.jsx';
+
 
 const App = () => {
   return (
@@ -37,6 +39,8 @@ const App = () => {
       <Route path="/tasks/upload" element={<UploadTask />} />
 
       <Route path="/email/send-test" element={<SendTestEmail />} />
+
+      <Route path="/notifications/send" element={<SendNotification />} />
     </Routes>
   );
 };
