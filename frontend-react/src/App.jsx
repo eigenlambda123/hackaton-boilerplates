@@ -19,6 +19,8 @@ import SendTestEmail from './pages/Email/SendTestEmail.jsx';
 
 import SendNotification from './pages/Notifications/SendNotification.jsx';
 
+import Summarize from './pages/AI/Summarize.jsx';
+
 
 const App = () => {
   return (
@@ -41,6 +43,8 @@ const App = () => {
       <Route path="/email/send-test" element={<SendTestEmail />} />
 
       <Route path="/notifications/send" element={<SendNotification />} />
+
+      <Route path="/ai/summarize" element={<Summarize />} />
     </Routes>
   );
 };
