@@ -13,16 +13,17 @@ def delete_user(db: Session, user_id: int):
     db.commit()
     return True
 
-def update_user_role(db: Session, user_id: int, new_role_name: str):
+def update_user_role(db: Session, user_id: int, new_role_id: int):
     user = db.get(User, user_id)
     if not user:
         return None
 
-    role = db.exec(select(Role).where(Role.name == new_role_name)).first()
+    # Optionally, check if the role exists
+    role = db.get(Role, new_role_id)
     if not role:
         return "role_not_found"
 
-    user.role_id = role.id
+    user.role_id = new_role_id
     db.add(user)
     db.commit()
     db.refresh(user)

@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class UserRoleUpdate(BaseModel):
-    role_name: str
+    role_id: int
 
 class AdminUserRead(BaseModel):
     id: int

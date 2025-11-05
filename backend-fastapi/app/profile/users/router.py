@@ -21,7 +21,7 @@ def get_user(user_id: int, db: Session = Depends(get_session)):
         raise HTTPException(status_code=404, detail="User not found")
     return user
 
-@router.put("/{user_id}", response_model=UserRead)
+@router.patch("/{user_id}", response_model=UserRead)
 def update_user(user_id: int, user_update: UserUpdate, db: Session = Depends(get_session)):
     user = crud.update_user(db, user_id, user_update)
     if not user:

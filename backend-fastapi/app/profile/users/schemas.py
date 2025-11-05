@@ -10,6 +10,8 @@ class UserUpdate(BaseModel):
     name: str | None = None
     email: str | None = None
     password: str | None = None
+    role_id: int | None = None
+
 
 # Use this if we're using the lightweight role implementation
 # class UserCreate(UserBase):

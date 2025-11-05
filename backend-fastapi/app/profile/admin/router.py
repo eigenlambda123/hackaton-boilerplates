@@ -22,8 +22,13 @@ def list_all_users(db: Session = Depends(get_session), admin_user=Depends(get_cu
     ]
 
 @router.patch("/users/{user_id}/role", response_model=AdminUserRead)
-def change_user_role(user_id: int, update: UserRoleUpdate, db: Session = Depends(get_session), admin_user=Depends(get_current_admin_user)):
-    updated_user = crud.update_user_role(db, user_id, update.role_name)
+def change_user_role(
+    user_id: int,
+    update: UserRoleUpdate,  # update should have role_id now
+    db: Session = Depends(get_session),
+    admin_user=Depends(get_current_admin_user)
+):
+    updated_user = crud.update_user_role(db, user_id, update.role_id)
     if updated_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     if updated_user == "role_not_found":

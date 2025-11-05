@@ -25,6 +25,7 @@ import TTSPage from './pages/AI/TTSPage.jsx';
 import STTPage from './pages/AI/STTPage.jsx';
 import AIChatPage from './pages/AI/AIChatPage.jsx';
 
+import AdminDashboard from './pages/Admin/AdminDashboard.jsx';
 
 const App = () => {
   return (
@@ -53,6 +54,8 @@ const App = () => {
       <Route path="/ai/tts" element={<TTSPage />} />
       <Route path="/ai/stt" element={<STTPage />} />
       <Route path="/ai/chat" element={<AIChatPage />} />
+
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
   );
 };
