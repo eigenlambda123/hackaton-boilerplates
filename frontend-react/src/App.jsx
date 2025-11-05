@@ -20,6 +20,7 @@ import SendTestEmail from './pages/Email/SendTestEmail.jsx';
 import SendNotification from './pages/Notifications/SendNotification.jsx';
 
 import Summarize from './pages/AI/Summarize.jsx';
+import Sentiment from './pages/AI/Sentiment.jsx';
 
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
       <Route path="/notifications/send" element={<SendNotification />} />
 
       <Route path="/ai/summarize" element={<Summarize />} />
+      <Route path="/ai/sentiment" element={<Sentiment />} />
     </Routes>
   );
 };
