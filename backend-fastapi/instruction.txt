@@ -1,4 +1,5 @@
 Check  https://docs.cohere.com/docs/models#command  for cohere model
 Install 'ffmpeg' for speech-to-text here: https://www.gyan.dev/ffmpeg/builds
 Admin Role Command curl -X GET "http://127.0.0.1:8000/admin/users" -H "Authorization: Bearer "Your Bearer token here"
-to use caching, use @cache(ttl=time), time = int
+To use caching, use @cache(ttl=time), time = int
+Make sure to change the app password in .env to use the email feature

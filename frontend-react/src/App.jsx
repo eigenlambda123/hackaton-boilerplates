@@ -15,6 +15,8 @@ import FilesPage from './pages/Files/FilesPage.jsx';
 import ProcessTask from './pages/Tasks/ProcessTask.jsx';
 import UploadTask from './pages/Tasks/UploadTask.jsx';
 
+import SendTestEmail from './pages/Email/SendTestEmail.jsx';
+
 
 const App = () => {
   return (
@@ -33,6 +35,8 @@ const App = () => {
 
       <Route path="/tasks/process" element={<ProcessTask />} />
       <Route path="/tasks/upload" element={<UploadTask />} />
+
+      <Route path="/email/send-test" element={<SendTestEmail />} />
     </Routes>
   );
 };
