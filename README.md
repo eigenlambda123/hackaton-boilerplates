@@ -1,4 +1,4 @@
-# hackaton-boilerplates 
+# Hackaton Boilerplates 
 
 *Boilerplate starter kits for rapid hackathon development (backend + frontend).*
 
