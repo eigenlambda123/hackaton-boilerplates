@@ -15,6 +15,7 @@
 - [License](#license)  
 
 ## About  
+
 This repository contains ready-to-go boilerplates to get you hacking fast in a hackathon environment. Focused on speed, modularity, and clarity so that you can spend time solving the problem — not wiring infrastructure.
 
 ## Why this exists  
@@ -24,6 +25,7 @@ This repository contains ready-to-go boilerplates to get you hacking fast in a h
 - For developers like you (and me) who prefer building systems, shipping features, and iterating fast.
 
 ## What’s included  
+
 ### Backend (`backend‐fastapi`)  
 - Python project with FastAPI for asynchronous API endpoints  
 - Modular folder structure (routers, schemas, models, services)  
